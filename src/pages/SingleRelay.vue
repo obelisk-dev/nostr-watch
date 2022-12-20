@@ -129,11 +129,11 @@ import NavComponent from '../components/NavComponent.vue'
 import { Row, Column } from 'vue-grid-responsive';
 import SafeMail from "@2alheure/vue-safe-mail";
 
-import sharedMethods from '../shared'
+import RelaysLib from '../lib/relays-lib.js'
 
 import { version } from '../../package.json'
 import { relays } from '../../relays.yaml'
-import { geo } from '../../geo.yaml'
+import { geo } from '../../cache/geo.yaml'
 
 const localMethods = {
     relayUrl() {
@@ -215,7 +215,7 @@ export default defineComponent({
      Object.keys(this.intervals).forEach(interval => clearInterval(this.intervals[interval]))
   },
 
-  methods: Object.assign(localMethods, sharedMethods),
+  methods: Object.assign(localMethods, RelaysLib),
 
 })
 </script>
